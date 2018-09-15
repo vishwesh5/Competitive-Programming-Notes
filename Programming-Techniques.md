@@ -212,3 +212,48 @@ REP(i,1,n)
 }
 ```
 
+## Recursion Algorithms
+
+### Generating Subsets
+Generate subsets of a set of n elements: `{1,2,3,...,n}`. Number of subsets = 2^n.
+
+```
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<int> subset;
+
+void printVector()
+{
+	if (subset.size()==0)
+		cout << "Null set";
+        for (int i=0; i < subset.size(); i++)
+                cout << subset.at(i) << ' ';
+        cout << "\n";
+}
+
+void search(int k, int n){
+        if (k==n+1){
+                printVector();
+        }
+        else{
+                subset.push_back(k);
+                search(k+1, n);
+                subset.pop_back();
+                search(k+1, n);
+        }
+}
+
+int main()
+{
+        int n;
+	cin >> n;
+        int k=1;
+        search(k,n);
+}
+```
+
+**Explanation**
+[subset.png](Subset code explanation)
