@@ -256,4 +256,4 @@ int main()
 ```
 
 **Explanation**
-[https://github.com/vishwesh5/Competitive-Programming-Notes/blob/master/subset.png](Subset code explanation)
+[Subset code explanation](subset.png)
