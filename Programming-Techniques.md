@@ -257,3 +257,53 @@ int main()
 
 **Explanation**
 ![Subset code explanation](subset.png)
+
+### Generating Permutations
+
+Generate all permutations of a set of n elements. Number of permutations = `n!`
+
+```
+#include <iostream>
+#include <vector>
+#define n 3
+
+using namespace std;
+
+vector<int> permutations;
+
+bool chosen[n+1];
+
+void printVector(){
+	for (int i=0; i < permutations.size(); i++)
+		cout << permutations.at(i) << " ";
+		//cout << "Completed";
+	cout << "\n";
+}
+
+void printArray(){
+	for (int i=1; i < 4; i++)
+		cout << chosen[i] << " ";
+	cout << "\n";
+}
+
+void search() {
+	if (permutations.size() == n)
+		printVector();
+	else
+	{
+		for (int i=1; i<= n; i++)
+		{
+			if (chosen[i]) continue;
+			chosen[i]=true;
+			permutations.push_back(i);
+			search();
+			chosen[i]=false;
+			permutations.pop_back();
+		}
+	}
+}
+
+int main(){
+	search();
+}
+```
