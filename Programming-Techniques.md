@@ -256,4 +256,4 @@ int main()
 ```
 
 **Explanation**
-[Subset code explanation](subset.png)
+![Subset code explanation](subset.png)
