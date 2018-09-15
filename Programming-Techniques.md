@@ -86,3 +86,35 @@ freopen("input.txt","r",stdin);
 freopen("output.txt","w",stdout);
 ```
 
+### Working with Numbers
+
+**Integers**
+
+1. `int`: 32-bit, **Range: -2^31 to 2^31 - 1, or -2 * 10^9 to 2 * 10^9)**.
+2. `long long`: 64-bit, **Range: -2^63 to 2^63 - 1, or -9 * 10^18 to 9 * 10^18)**. Example: `long long x = 123456789123456789LL;`
+
+**Common mistake**
+```
+int a = 123456789;
+long long b = a*a;
+cout << b << "\n";
+```
+`a*a` will still return an `int` creating **overflow**.
+
+**Solution**: use `long long a` instead of `int a`.
+
+**Modular arithmetic**
+
+1. `(a+b) mod m = (a mod m + b mod m) mod m`
+2. `(a-b) mod m = (a mod m - b mod m) mod m`
+3. `(a*b) mod m = (a mod m * b mod m) mod m`
+
+**For negative numbers**
+
+```
+x = x%m;
+if (x < 0) x+= m;
+```
+
+**Floating point numbers**
+
