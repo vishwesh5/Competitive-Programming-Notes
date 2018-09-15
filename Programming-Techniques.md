@@ -117,4 +117,98 @@ if (x < 0) x+= m;
 ```
 
 **Floating point numbers**
+1. `double`: 64 bit, most commonly used
+2. `long double`: 80 bit
+
+For output accurate to specific number of decimal places:
+
+```
+printf("%.9f", x);
+```
+
+**To compare floating point numbers, do NOT use `==`**
+
+**Solution**
+
+```
+double epsilon = 1e-9;
+if (abs(a-b) < epsilon) // a and b are equal
+```
+
+### Shortening Code
+
+**`typedef`**:
+
+Example:
+```
+typedef long long ll;
+```
+
+After this,
+
+```
+long long a = 123456789;
+long long b = 102030405;
+cout << a*b << "\n";
+```
+
+can be replaced be:
+
+```
+ll a = 123456789;
+ll b = 102030405;
+cout << a*b << "\n";
+```
+
+Other examples:
+
+```
+typedef vector<int> vi;
+typedef pair<int,int> pi;
+```
+
+**Macros**:
+
+Example:
+```
+#define first F
+#define second S
+#define push_back PB
+#define make_pair MP
+```
+
+After this,
+```
+v.push_back(make_pair(y1,x1));
+v.push_back(make_pair(y2,x2));
+int d = v[i].first+v[i].second;
+```
+
+can be written as:
+```
+v.PB(MP(y1,x1));
+v.PB(MP(y2,x2));
+int d = v[i].F+v[i].S;
+```
+
+**For passing parameters in macro**:
+
+```
+#define for (int i = a; i < b; i++) REP(i,a,b)
+```
+
+```
+for (int i = 1; i <= n; i++) {
+	search(i);
+}
+```
+
+Can be written as:
+
+```
+REP(i,1,n)
+{
+	search(i);
+}
+```
 
